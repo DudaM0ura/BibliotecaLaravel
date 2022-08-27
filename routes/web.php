@@ -14,10 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('/biblioteca/index', [BibliotecaController::class, 'index'])->name('biblioteca.index');
+Route::get('/', [BibliotecaController::class, 'index'])->name('biblioteca.index');
 Route::get('/biblioteca/create', [BibliotecaController::class, 'create'])->name('biblioteca.create');
 Route::post('/biblioteca/create',[BibliotecaController::class, 'store'])->name('biblioteca.store');
+Route::get('/biblioteca/edit/{id}', [BibliotecaController::class, 'edit'])->name('biblioteca.edit');
+Route::put('/biblioteca/edit/{id}', [BibliotecaController::class, 'update'])->name('biblioteca.update');
+Route::delete('/biblioteca/destroy/{id}', [BibliotecaController:: class, 'destroy'])->name('biblioteca.destroy');

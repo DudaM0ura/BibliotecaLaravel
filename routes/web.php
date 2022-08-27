@@ -15,8 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/biblioteca/index', [BibliotecaController::class, 'index'])->name('biblioteca.index');
 Route::get('/biblioteca/create', [BibliotecaController::class, 'create'])->name('biblioteca.create');
+Route::post('/biblioteca/create',[BibliotecaController::class, 'store'])->name('biblioteca.store');

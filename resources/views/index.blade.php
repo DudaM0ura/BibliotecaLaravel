@@ -11,12 +11,14 @@
       </tr>
     </thead>
     <tbody>
+      @foreach ($biblioteca as $livro)
       <tr>
-        <td>Dias Perfeitos</td>
-        <td>Otto</td>
-        <td>2011ytgg</td>
-        <td>2012</td>
+        <td>{{$livro->titulo}}</td>
+        <td>{{$livro->autor}}</td>
+        <td>{{$livro->isbn}}</td>
+        <td>{{$livro->ano_lancamento}}</td>
       </tr>
+      @endforeach
     </tbody>
   </table>
 @endsection

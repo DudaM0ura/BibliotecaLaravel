@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Biblioteca;
 use Illuminate\Http\Request;
 
 class BibliotecaController extends Controller
@@ -9,7 +10,8 @@ class BibliotecaController extends Controller
 
     public function index()
     {
-        return view('index');
+        $biblioteca = Biblioteca::get();
+        return view('index', compact('biblioteca'));
     }
 
 
@@ -21,7 +23,8 @@ class BibliotecaController extends Controller
 
     public function store(Request $request)
     {
-        //
+        Biblioteca::create($request->all());
+        return redirect()->route('biblioteca.index');
     }
 
 
